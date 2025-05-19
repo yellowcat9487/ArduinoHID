@@ -5,11 +5,11 @@
 byte lastData = 0;
 
 void setup() {
-  pinMode(buttonW, INPUT_PULLUP);
-  pinMode(buttonT, INPUT_PULLUP);
-  pinMode(buttonF, INPUT_PULLUP);
+  pinMode(BUTTON_1, INPUT_PULLUP);
+  pinMode(BUTTON_2, INPUT_PULLUP);
+  pinMode(BUTTON_3, INPUT_PULLUP);
 
-  Serial1.begin(115200);
+  Serial.begin(115200);
 }
 
 void loop() {
@@ -20,7 +20,7 @@ void loop() {
   if (!digitalRead(BUTTON_3)) data |= 0b00000100;
 
   if (data != lastData) {
-    Serial1.write(data);
+    Serial.write(data);
     lastData = data;
   }
 }
